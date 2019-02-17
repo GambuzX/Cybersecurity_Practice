@@ -3,19 +3,33 @@ Exploited vulnerable buffer to create a stack frame where the functions 'ret' in
 Stack frame:
 
 |-----------------|
+
 |      ...        |
+
 |-----------------|
+
 |     arg2        |
+
 |-----------------|
+
 |     arg1        |
+
 |-----------------|
+
 |     flag        |
+
 |-----------------|
+
 |  win_function2  |
+
 |-----------------|
+
 |  win_function1  | 
+
 |-----------------|
+
 |    padding      |
+
 |-----------------|
 
 
