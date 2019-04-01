@@ -1,0 +1,12 @@
+0 -> 1
+Found the hidden .bookmarks file.
+Used grep to search for password and found it.
+
+
+
+1 -> 2
+Using gdb understood that the password was 'sex'. Could also have just skipped the line in the debugger.
+
+Running the executable and inserting the password we get a shell, in which our uid is leviathan2.
+
+After that you can just use 'cat /etc/leviathan_pass/leviathan2' to get 'ougahZi8Ta'.
