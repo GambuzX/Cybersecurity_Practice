@@ -1,6 +1,6 @@
 0 -> 1
-Found the hidden .bookmarks file.
-Used grep to search for password and found it.
+Found the hidden .backup folder with a 'bookmarks.html' file inside.
+Used grep to search for 'password' and found it.
 
 
 
@@ -10,3 +10,14 @@ Using gdb understood that the password was 'sex'. Could also have just skipped t
 Running the executable and inserting the password we get a shell, in which our uid is leviathan2.
 
 After that you can just use 'cat /etc/leviathan_pass/leviathan2' to get 'ougahZi8Ta'.
+
+
+
+2 -> 3
+Analysing the executable with ltrace, we understand that there are 2 important function calls: access and cat.
+
+Access is being called with the full path name. However, cat is not. If the input file has spaces, it will be interpreted as 2 separate files.
+
+We can exploit this by creating a symbolic link to /etc/leviathan_pass/leviathan3 called 'pass' (for example) and creating a file 'test pass'.
+
+When we run the executable in the 'test pass' file, it will check access to 'test pass', which is granted, and then cat files 'test' and 'pass'.
