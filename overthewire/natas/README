@@ -1,0 +1,13 @@
+0 -> 1
+Just look at the source code of the page.
+
+1 -> 2
+Just look at the source code of the page again. But this time you cant open it with a right click.
+
+2 -> 3 
+Looking at the source code we notice an image coming from '/files'. We can access that directory and open the 'users.txt' file to find the next level password.
+
+3 -> 4
+Looking at the commentary left about Google I thought about Google bots and the 'robots.txt' file. By opening this file we notice a secret folder and can find the password inside.
+
+4 -> 5
