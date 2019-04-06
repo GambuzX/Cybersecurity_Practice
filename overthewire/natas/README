@@ -11,3 +11,24 @@ Looking at the source code we notice an image coming from '/files'. We can acces
 Looking at the commentary left about Google I thought about Google bots and the 'robots.txt' file. By opening this file we notice a secret folder and can find the password inside.
 
 4 -> 5
+You must change the 'referer' http header to 'http://natas5.natas.labs.overthewire.org/' in order to get the password.
+I wrote a python script for that.
+
+5 -> 6
+You must change the cookie 'loggedin' value to 1 and the password is shown.
+
+6 -> 7
+Looking at the source code you notice that a secret value is used to compare, coming from 'includes/secret.inc'.
+Accessing that file you can get the secret. Use that in the input box and you get the password.
+
+7 -> 8
+Clicking on any of the given links you notice that a parameter 'page' is being used in the search bar. By trying an invalid input you notice that an in include() method is being called.
+You can use directory traversal to make it read the file you want in '/etc/natas_webpass/natas8', by writing '../../../../etc/natas_webpass/natas8'.
+That gives you the password.
+
+8 -> 9
+By looking at the source code you can see how the input is encrypted. You can just start with the target encrypted message and apply the inverse operations used to encrypt, leading to the code 'oubWYf2kBq'. Use that in the input box and you get the password.
+I wrote a python script for the decryption.
+
+9 -> 10
+Looking at the source code you see that grep is being called with a passthru command. You can exploit this by chaining commands, inputting '; cat /etc/natas_webpass/natas10'. The password will be returned.
