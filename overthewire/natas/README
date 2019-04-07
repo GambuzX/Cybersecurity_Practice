@@ -32,3 +32,17 @@ I wrote a python script for the decryption.
 
 9 -> 10
 Looking at the source code you see that grep is being called with a passthru command. You can exploit this by chaining commands, inputting '; cat /etc/natas_webpass/natas10'. The password will be returned.
+
+10 -> 11
+You can take control of the grep function by commenting the rest of the command with '#'.
+Just read everything from /etc/natas_webpass/natas11, with '.* /etc/natas_webpass/natas11 #' and you get the password.
+
+11 -> 12
+In this level we need to somehow set the value of 'showpassword' inside the 'data' cookie to 'yes'. 
+We have access to the source code used to encrypt the data, as well as to the data used in the default encryption.
+Since the encryption method is a XOR with a key (hidden), our objective is to find it.
+We can do it by XORing the data cookie (encrypted with the key) with the original default data that was encrypted.
+After getting the key, we can just change 'showpassword' to 'yes' and use the key to encrypt again.
+After that change the cookie 'data' value and reload the page.
+You should see the password.
+I used python to help me with the encryption/decryption.   
