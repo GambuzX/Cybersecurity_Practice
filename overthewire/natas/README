@@ -55,3 +55,7 @@ By uploading a php script which reads the password from the server and altering 
 This level is similar to the previous one, only changing that one additional check is done to the uploaded file to see if it really is of an image format.
 We can exploit this check by appending at the start of the php script the magic numbers of a gif file (for example), which are 'GIF87a'.
 The server will accept the script and by visiting the given link you can read the password.
+
+14 -> 15
+This can be solved with a basic SQL injection, such as: '" OR 1=1 --'.
+The server will give you the password.
