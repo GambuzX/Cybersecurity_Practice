@@ -45,4 +45,13 @@ We can do it by XORing the data cookie (encrypted with the key) with the origina
 After getting the key, we can just change 'showpassword' to 'yes' and use the key to encrypt again.
 After that change the cookie 'data' value and reload the page.
 You should see the password.
-I used python to help me with the encryption/decryption.   
+I used python to help me with the encryption/decryption.
+
+12 -> 13
+In this level you can take advantage of a Unrestricted File Upload vulnerability. 
+By uploading a php script which reads the password from the server and altering the extension of the saved file from .jpg to .php (there is an hidden input box), you can then access the password via the link which is provided after uploading.
+
+13 -> 14
+This level is similar to the previous one, only changing that one additional check is done to the uploaded file to see if it really is of an image format.
+We can exploit this check by appending at the start of the php script the magic numbers of a gif file (for example), which are 'GIF87a'.
+The server will accept the script and by visiting the given link you can read the password.
