@@ -59,3 +59,10 @@ The server will accept the script and by visiting the given link you can read th
 14 -> 15
 This can be solved with a basic SQL injection, such as: '" OR 1=1 --'.
 The server will give you the password.
+
+15 -> 16
+In this level you must perform a Blind SQL Injection to get the password.
+You can not visualize any query result, but you get a message telling you if it found a user or not. You can also inject more SQL besides the username, as it is not checked.
+You can exploit this by providing a combination of username and password. If you get the 'This user exists.' message, it means you have the right password.
+You can get the password by incrementally guessing its symbols with a bruteforce attack, using the SQL 'LIKE BINARY' keywords and '%' string match operator.
+I wrote a python script to automate this for me.
