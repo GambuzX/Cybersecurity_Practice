@@ -74,3 +74,9 @@ By executing the command 'grep -E ^a.* /etc/natas_webpass/natas17', we will only
 By chaining this with the word 'hello', like this: $(grep -E ^a.* /etc/natas_webpass/natas17)hello, we will get the word 'hello' if it is wrong and 'ahello' if it is correct. Using the grep of the webpage, if we guessed the start of the password correctly, there will be no output.
 With this, by continuously storing the found characters and changing the regex expression, we can guess the password with a bruteforce attack.
 I wrote a python script to automate this. The first part looks for characters that appear in any part of the password, so that the bruteforce only has to iterate over those characters and be more efficient.
+
+17 -> 18
+This level is like level 15, but you have no output regarding whether the user exists or not. As such, the approach here is to do a Time based attack.
+By changing the query from 'username=natas18 and password LIKE BINARY %a%' to 'username=natas18 and if(password LIKE BINARY %a%, 2, 0)', if the credentials are valid, the server will take more time processing it (2 seconds in this case).
+From this, we can change our script to measure the time the query takes to execute.
+I updated the script to reflect this behaviour.
