@@ -66,11 +66,3 @@ You can not visualize any query result, but you get a message telling you if it 
 You can exploit this by providing a combination of username and password. If you get the 'This user exists.' message, it means you have the right password.
 You can get the password by incrementally guessing its symbols with a bruteforce attack, using the SQL 'LIKE BINARY' keywords and '%' string match operator.
 I wrote a python script to automate this for me.
-
-16 -> 17
-In this level more characters are escaped, but the '$' is not. This means we can still execute commands and get its output like $(ls).
-You must blindily test characters to guess the password.
-By executing the command 'grep -E ^a.* /etc/natas_webpass/natas17', we will only get output if the password starts with an 'a'.
-By chaining this with the word 'hello', like this: $(grep -E ^a.* /etc/natas_webpass/natas17)hello, we will get the word 'hello' if it is wrong and 'ahello' if it is correct. Using the grep of the webpage, if we guessed the start of the password correctly, there will be no output.
-With this, by continuously storing the found characters and changing the regex expression, we can guess the password with a bruteforce attack.
-I wrote a python script to automate this. The first part looks for characters that appear in any part of the password, so that the bruteforce only has to iterate over those characters and be more efficient.
