@@ -101,4 +101,9 @@ In the adjacent site you can set any value in Session that you want. You just ha
 22 -> 23
 Just access the website with the GET parameter 'revelio' and disabling redirects.
 
-23 -> 24 
+23 -> 24
+You must input a string that contains 'iloveyou' and will be interpreted as a number above 10.
+For example '11111111iloveyou'. 
+
+24 -> 25
+By making the strcmp return an error, the code below it will be executed (in this case getting the flag). To make it fail you can, for example, send the passwd as an array, with the following notation: <url>?passwd[]=h4ck3d
