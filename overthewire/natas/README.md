@@ -66,3 +66,26 @@ You can not visualize any query result, but you get a message telling you if it 
 You can exploit this by providing a combination of username and password. If you get the 'This user exists.' message, it means you have the right password.
 You can get the password by incrementally guessing its symbols with a bruteforce attack, using the SQL 'LIKE BINARY' keywords and '%' string match operator.
 I wrote a python script to automate this for me.
+
+16 -> 17
+In this level more characters are escaped, but the '$' is not. This means we can still execute commands and get its output like $(ls).
+You must blindily test characters to guess the password.
+By executing the command 'grep -E ^a.* /etc/natas_webpass/natas17', we will only get output if the password starts with an 'a'.
+By chaining this with the word 'hello', like this: $(grep -E ^a.* /etc/natas_webpass/natas17)hello, we will get the word 'hello' if it is wrong and 'ahello' if it is correct. Using the grep of the webpage, if we guessed the start of the password correctly, there will be no output.
+With this, by continuously storing the found characters and changing the regex expression, we can guess the password with a bruteforce attack.
+I wrote a python script to automate this. The first part looks for characters that appear in any part of the password, so that the bruteforce only has to iterate over those characters and be more efficient.
+
+17 -> 18
+This level is like level 15, but you have no output regarding whether the user exists or not. As such, the approach here is to do a Time based attack.
+By changing the query from 'username=natas18 and password LIKE BINARY %a%' to 'username=natas18 and if(password LIKE BINARY %a%, 2, 0)', if the credentials are valid, the server will take more time processing it (2 seconds in this case).
+From this, we can change our script to measure the time the query takes to execute.
+I updated the script to reflect this behaviour.
+
+18 -> 19
+A cookie is created with the value of your session ID (which is limited between 1 and 640). You just have to bruteforce all the session ids, sending requests with the cookie set, until you get the admin session ID.
+Script: 'natas19.py'
+
+19 -> 20
+This level is similar to the previous one, but you may notice that the PHPSESSID is now different. It is an hexadecimal value and, decoding it, you notice that it is the result of hexing the following string: <session_id>-<username>.
+I changed the previous script to reflect this, sending the cookie value of PHPSESSID as the hexadecimal of "<session_id>-admin" instead of just the session id.
+
