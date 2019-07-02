@@ -107,3 +107,10 @@ For example '11111111iloveyou'.
 
 24 -> 25
 By making the strcmp return an error, the code below it will be executed (in this case getting the flag). To make it fail you can, for example, send the passwd as an array, with the following notation: <url>?passwd[]=h4ck3d
+
+25 -> 26
+You can use the lang parameter for path traversal, but you are limited. The '../' substitution can be surpassed by nesting '../', like this '....//'.
+However, there is still a filter for 'natas_webpass', so we can't just include it.
+Luckily, in the log file the User-Agent is being written, which we can manipulate to point to the password by writing "<? include '/etc/natas_webpass/natas26'; %>".
+After that just include via the 'lang' parameter the log file that is being generated and the password will be displayed.
+Script: 'natas25.py'
