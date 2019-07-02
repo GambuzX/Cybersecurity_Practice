@@ -96,4 +96,9 @@ With this the 'print_credentials' method will give us the flag.
 I wrote a script to automate this.
 
 21 -> 22
- 
+In the adjacent site you can set any value in Session that you want. You just have to set 'admin' to 1 and, since the 2 websites are colocated and the session from one is valid in the other, just reuse the session id to access the first site.
+
+22 -> 23
+Just access the website with the GET parameter 'revelio' and disabling redirects.
+
+23 -> 24 
