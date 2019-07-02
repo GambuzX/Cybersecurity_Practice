@@ -89,3 +89,11 @@ Script: 'natas19.py'
 This level is similar to the previous one, but you may notice that the PHPSESSID is now different. It is an hexadecimal value and, decoding it, you notice that it is the result of hexing the following string: <session_id>-<username>.
 I changed the previous script to reflect this, sending the cookie value of PHPSESSID as the hexadecimal of "<session_id>-admin" instead of just the session id.
 
+20 -> 21
+The vulnerability in this level is in the parsing of the 'myread' function. It reads the content from a file and, based on newlines and spaces, sets values in $_SESSION._
+In the 'mywrite' function we can only write the value for 'name'. However, nothing prevents us from setting this value to 'admin\nadmin 1'. What this will do in the 'myread' function is: read the value for 'name' as 'admin'; read the value for 'admin' as 1.
+With this the 'print_credentials' method will give us the flag.
+I wrote a script to automate this.
+
+21 -> 22
+ 
