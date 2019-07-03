@@ -114,3 +114,10 @@ However, there is still a filter for 'natas_webpass', so we can't just include i
 Luckily, in the log file the User-Agent is being written, which we can manipulate to point to the password by writing "<? include '/etc/natas_webpass/natas26'; %>".
 After that just include via the 'lang' parameter the log file that is being generated and the password will be displayed.
 Script: 'natas25.py'
+
+26 -> 27
+The exploit in this level is related to the php serialize and unserialize function.
+Since when an object is serialized its definition is not included, we can rewrite the Logger class to do what we wish, namely print out the natas27 password.
+The script never really uses the Logger, but, if we somehow instanciate it, we can make use of its destructor message.
+If we create our logger, serialize it, base64_encode it and send it as the 'drawing' cookie, the server will decode it and eventually destroy that object, loggin the message of our choosing to the location we can also specify.
+I did this with 2 scripts, 1 in php to serialize the object used for the exploit and 1 in python to send the payload and retrieve the password.
