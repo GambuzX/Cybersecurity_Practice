@@ -121,3 +121,12 @@ Since when an object is serialized its definition is not included, we can rewrit
 The script never really uses the Logger, but, if we somehow instanciate it, we can make use of its destructor message.
 If we create our logger, serialize it, base64_encode it and send it as the 'drawing' cookie, the server will decode it and eventually destroy that object, loggin the message of our choosing to the location we can also specify.
 I did this with 2 scripts, 1 in php to serialize the object used for the exploit and 1 in python to send the payload and retrieve the password.
+
+27 -> 28
+I noticed that in the dump function it displays information about all the users that match that username, not just 1. So we have a hint that we somehow need to create another user 'natas28'.
+You are given the size of the varchar used to store the username (64 bytes).
+In SQL, if you exceed the size of the variable, it gets truncated to the first 64 bytes. But what happens if you fill it with spaces, exceeding the 64 bytes, and append a value at the end (for example a '1')?
+In the 'validUser' it will correctly see that the usernames are different. However, when it tries to create a user, it will truncate and create the user 'natas28' (filled with spaces in the end).
+But if you use a SELECT statement, like in the 'checkCredentials', the spaces are ignored, so you are effectivelly user 'natas28'.
+Due to the fact that the dump function outputs the information about any user 'natas28', you can get the password.
+Script: 'natas27.py' 
