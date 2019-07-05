@@ -129,4 +129,13 @@ In SQL, if you exceed the size of the variable, it gets truncated to the first 6
 In the 'validUser' it will correctly see that the usernames are different. However, when it tries to create a user, it will truncate and create the user 'natas28' (filled with spaces in the end).
 But if you use a SELECT statement, like in the 'checkCredentials', the spaces are ignored, so you are effectivelly user 'natas28'.
 Due to the fact that the dump function outputs the information about any user 'natas28', you can get the password.
-Script: 'natas27.py' 
+Script: 'natas27.py'
+
+28 -> 29
+follower this link and copied his script
+http://s0hungry.com/2017/08/27/over-the-wire-natas28-security-puzzle/
+
+29 -> 30
+By appending a '|' in the file parameter, you can execute commands like this '|ls%00'.
+You cant directly read the password because the word 'natas' is filtered.
+However, with the following injection this can be bypassed: |cat+/etc/n%22%22atas_webpass/n%22%22atas30%00
