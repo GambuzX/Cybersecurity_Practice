@@ -139,3 +139,18 @@ http://s0hungry.com/2017/08/27/over-the-wire-natas28-security-puzzle/
 By appending a '|' in the file parameter, you can execute commands like this '|ls%00'.
 You cant directly read the password because the word 'natas' is filtered.
 However, with the following injection this can be bypassed: |cat+/etc/n%22%22atas_webpass/n%22%22atas30%00
+
+30 -> 31
+This level explores a vulnerability in perl quote() when you pass in an array.
+It requires an SQL injection.
+I wrote a script for this level.
+
+31 -> 32
+https://axcheron.github.io/writeups/otw/natas/#natas-32-solution
+
+32 -> 33
+Following the method from the previous level, I executed ls and found the binary 'getpassword'.
+After that just execute it.
+
+33 -> 34
+https://axcheron.github.io/writeups/otw/natas/#natas-33-solution

