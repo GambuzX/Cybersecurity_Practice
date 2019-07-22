@@ -1,9 +1,6 @@
 #!/bin/python
 
-encoded = ""
-
-with open("krypton2", 'r') as handle:
-	encoded = handle.read()
+encoded = "YRIRY GJB CNFFJBEQ EBGGRA"
 
 start_offset = 65
 rotation = 13
