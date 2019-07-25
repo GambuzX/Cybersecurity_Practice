@@ -12,7 +12,8 @@ With this info you can just shift each char in the encoded password 12 places to
 Frequency analysis of the letters, digrams and trigrams.
 
 4 -> 5
-
+Dividing the encrypted text in groups according to the key length, you can use letter frequency analysis to determine the shift on each part of the key.
+The most occuring letter is assumed to correspond to 'E', the most frequent letter in English.
 
 5 -> 6
 
