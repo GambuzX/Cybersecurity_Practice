@@ -9,7 +9,7 @@ Experimenting with the given binary used to encode, you can understand that it o
 With this info you can just shift each char in the encoded password 12 places to the left to decode.
 
 3 -> 4
-
+Frequency analysis of the letters, digrams and trigrams.
 
 4 -> 5
 
