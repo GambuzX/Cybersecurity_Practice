@@ -16,6 +16,6 @@ Dividing the encrypted text in groups according to the key length, you can use l
 The most occuring letter is assumed to correspond to 'E', the most frequent letter in English.
 
 5 -> 6
-
+Same as previous level, but not knowing key length. Just changed the script to try different key lengths until I got english text.
 
 6 -> 7
