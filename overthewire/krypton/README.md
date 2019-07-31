@@ -19,3 +19,5 @@ The most occuring letter is assumed to correspond to 'E', the most frequent lett
 Same as previous level, but not knowing key length. Just changed the script to try different key lengths until I got english text.
 
 6 -> 7
+Encoding a chosen plaintext you can check the shift for each character in each position.
+Just discover those shifts and apply them to the encrypted password.
