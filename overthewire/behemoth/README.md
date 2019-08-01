@@ -3,6 +3,8 @@ using ltrace on the behemoth0 binary you can see that the password is being comp
 using that password you get a shell and can then read /etc/behemoth_pass/behemoth1
 
 1 -> 2
+stack overflow with injected shellcode.
+control eip to jump to the stack where you inject shellcode to spawn a bash shell.
 
 2 -> 3
 
