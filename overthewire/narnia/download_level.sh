@@ -1,0 +1,1 @@
+scp -r -P 2222 narnia$1@narnia.labs.overthewire.org:/narnia/narnia$1 .
