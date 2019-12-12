@@ -1,0 +1,1 @@
+just run the program with a big enough argument (>128 chars) to trigger a segfault
